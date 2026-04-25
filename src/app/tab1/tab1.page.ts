@@ -31,13 +31,13 @@ export class Tab1Page {
 
   readonly keyInputs = [
     { label: 'Calories Consumed', tone: 'accent-yellow' },
-    { label: 'Calories Burnt', tone: 'accent-orange' },
+    { label: 'Calories Burnt', tone: 'accent-yellow' },
+    { label: 'Steps', tone: 'accent-yellow' },
+    { label: 'Water Glasses', tone: 'accent-yellow' },
     { label: 'Protein', tone: 'accent-orange' },
-    { label: 'Carbs', tone: 'accent-yellow' },
-    { label: 'Fats', tone: 'accent-blue' },
-    { label: 'Fibre', tone: 'accent-cream' },
-    { label: 'Steps', tone: 'accent-blue' },
-    { label: 'Water Glasses', tone: 'accent-cream' },
+    { label: 'Carbs', tone: 'accent-orange' },
+    { label: 'Fats', tone: 'accent-orange' },
+    { label: 'Fibre', tone: 'accent-orange' },
   ];
 
   constructor() {

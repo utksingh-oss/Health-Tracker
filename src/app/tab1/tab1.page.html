@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true" class="tab1-content">
+<ion-header class="tab1-header">
   <div class="tracker-shell">
     <section class="tracker-frame">
       <div class="tracker-main mobile-focus">
@@ -8,12 +8,20 @@
               <p class="eyebrow">Daily Activity</p>
               <span class="section-tag">{{ todayLabel }}</span>
             </div>
-            <button type="button" class="action-button secondary-action header-action">
+            <!-- <button type="button" class="action-button secondary-action header-action">
               Save Today&apos;s Entry
-            </button>
+            </button> -->
           </div>
         </header>
+      </div>
+    </section>
+  </div>
+</ion-header>
 
+<ion-content [fullscreen]="false" class="tab1-content">
+  <div class="tracker-shell">
+    <section class="tracker-frame">
+      <div class="tracker-main mobile-focus">
         <main class="tracker-workspace mobile-workspace">
           <section class="section-block compact-section">
             <div class="section-heading">
@@ -48,7 +56,10 @@
             </div>
           </section>
 
-          <section class="summary-card detail-card mobile-detail-card">
+          <section class="summary-card detail-card mobile-detail-card" >
+            <div class="section-heading">
+              <h2>Daily Tasks</h2>
+            </div>
             <div class="detail-row">
               <span>Goal</span>
               <strong>Cut 300 kcal</strong>
