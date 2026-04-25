@@ -6,7 +6,7 @@
           <div class="headline-panel simple-header">
             <div class="headline-meta">
               <p class="eyebrow">Profile</p>
-              <span class="section-tag"></span>
+              <span class="section-tag">{{ todayLabel }}</span>
             </div>
           </div>
         </header>
@@ -15,6 +15,62 @@
   </div>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="false" class="tab3-content">
+  <div class="tracker-shell">
+    <section class="tracker-frame">
+      <div class="tracker-main mobile-focus">
+        <main class="tracker-workspace mobile-workspace">
+          <section class="section-block compact-section">
+            <div class="section-heading">
+              <h2>Quick Snapshot</h2>
+            </div>
 
+            <div class="stats-grid compact-stats">
+              @for (card of statCards; track card.label) {
+                <article class="stat-card mini-stat-card">
+                  <div class="stat-icon">
+                    <ion-icon [icon]="card.icon"></ion-icon>
+                  </div>
+                  <p class="stat-label">{{ card.label }}</p>
+                  <h3>{{ card.value }}</h3>
+                </article>
+              }
+            </div>
+          </section>
+
+          <section class="section-block compact-section">
+            <div class="section-heading">
+              <h2>Profile Details</h2>
+            </div>
+
+            <div class="form-grid compact-form">
+              @for (field of profileFields; track field.label) {
+                <label class="input-panel compact-input" [class]="field.tone">
+                  <span>{{ field.label }}</span>
+                  <ion-input
+                    [type]="field.type"
+                    [value]="field.value"
+                    readonly="true"
+                    fill="outline">
+                  </ion-input>
+                </label>
+              }
+            </div>
+          </section>
+
+          <section class="summary-card detail-card mobile-detail-card">
+            <div class="section-heading">
+              <h2>Goals & Metrics</h2>
+            </div>
+            @for (row of goalRows; track row.label) {
+              <div class="detail-row">
+                <span>{{ row.label }}</span>
+                <strong>{{ row.value }}</strong>
+              </div>
+            }
+          </section>
+        </main>
+      </div>
+    </section>
+  </div>
 </ion-content>

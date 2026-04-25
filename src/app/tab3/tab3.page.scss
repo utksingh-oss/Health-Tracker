@@ -1,3 +1,7 @@
+.tab3-content {
+  --padding-bottom: calc(96px + env(safe-area-inset-bottom));
+}
+
 .tab3-header {
   background: var(--app-surface, #f6ecd3);
   box-shadow: none;
