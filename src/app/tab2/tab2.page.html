@@ -6,7 +6,7 @@
           <div class="headline-panel simple-header">
             <div class="headline-meta">
               <p class="eyebrow">Tracking</p>
-              <span class="section-tag"></span>
+              <span class="section-tag">{{ todayLabel }}</span>
             </div>
           </div>
         </header>
@@ -15,7 +15,89 @@
   </div>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="false" class="tab2-content">
+  <div class="tracker-shell">
+    <section class="tracker-frame">
+      <div class="tracker-main mobile-focus">
+        <main class="tracker-workspace mobile-workspace">
+          <section class="section-block compact-section streak-section">
+            <div class="section-heading streak-heading">
+              <div>
+                <h2>Tracking Streak</h2>
+                <p class="section-support">{{ currentStreak }} day run, {{ longestStreak }} day best</p>
+              </div>
+              <div class="streak-micro-stats">
+                <span>{{ trackedDays }} logged</span>
+              </div>
+            </div>
 
+            <div class="streak-scroll" aria-label="Fourteen day tracking history">
+              <div class="streak-track">
+                @for (day of streakDays; track day.dateLabel) {
+                  <div class="streak-pill" [class.is-active]="day.tracked">
+                    <span class="streak-label">{{ day.shortLabel }}</span>
+                    <strong>{{ day.dateLabel }}</strong>
+                  </div>
+                }
+              </div>
+            </div>
+          </section>
 
+          <section class="section-block compact-section">
+            <div class="section-heading projection-heading">
+              <div>
+                <h2>Weight Projection</h2>
+                <p class="section-support">{{ projectionHeadline }}</p>
+              </div>
+
+              <div class="chart-toggle" role="tablist" aria-label="Projection view">
+                @for (mode of projectionModes; track mode.id) {
+                  <button
+                    type="button"
+                    class="chart-toggle-button"
+                    [class.is-active]="activeProjectionMode === mode.id"
+                    (click)="setProjectionMode(mode.id)">
+                    {{ mode.label }}
+                  </button>
+                }
+              </div>
+            </div>
+
+            <div class="chart-frame projection-chart-frame">
+              <canvas
+                baseChart
+                [data]="activeProjectionChartData"
+                [options]="projectionChartOptions"
+                [type]="projectionChartType"></canvas>
+            </div>
+
+            <div class="projection-footer">
+              <div class="projection-chip">
+                <ion-icon [icon]="flagOutline"></ion-icon>
+                <span>{{ goalEtaLabel }}</span>
+              </div>
+              <p class="section-support">{{ projectionSupport }}</p>
+            </div>
+          </section>
+
+          <section class="section-block compact-section">
+            <div class="section-heading">
+              <div>
+                <h2>Micronutrients Trend</h2>
+                <p class="section-support">{{ nutritionInsight }}</p>
+              </div>
+            </div>
+
+            <div class="chart-frame nutrition-frame">
+              <canvas
+                baseChart
+                [data]="nutritionChartData"
+                [options]="nutritionChartOptions"
+                [type]="nutritionChartType"></canvas>
+            </div>
+          </section>
+        </main>
+      </div>
+    </section>
+  </div>
 </ion-content>

@@ -2,6 +2,11 @@
   display: block;
 }
 
+.tab2-content {
+  --background: transparent;
+  --padding-bottom: calc(74px + env(safe-area-inset-bottom));
+}
+
 .tab2-header {
   background: var(--app-surface, #f6ecd3);
   box-shadow: none;
@@ -15,4 +20,148 @@
 
 .tab2-header .tracker-frame {
   min-height: auto;
+}
+
+.streak-pill strong {
+  margin: 0;
+}
+
+.stat-note,
+.section-support,
+.streak-label {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.stat-note,
+.section-support {
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.projection-heading {
+  align-items: flex-start;
+}
+
+.chart-toggle {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chart-toggle-button {
+  min-height: 38px;
+  padding: 10px 12px;
+  border: var(--line, 2px) solid var(--ink, #171717);
+  background: white;
+  color: var(--ink, #171717);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.chart-toggle-button.is-active {
+  background: var(--yellow, #f7df46);
+}
+
+.chart-frame {
+  position: relative;
+  min-height: 280px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: var(--line, 2px) solid var(--ink, #171717);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.projection-chart-frame {
+  background: rgba(247, 223, 70, 0.18);
+}
+
+.projection-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.projection-chip,
+.streak-micro-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border: var(--line, 2px) solid var(--ink, #171717);
+  background: var(--yellow, #f7df46);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.projection-chip ion-icon {
+  font-size: 14px;
+}
+
+.streak-section {
+  padding-bottom: 8px;
+}
+
+.streak-heading {
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.streak-scroll {
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.streak-track {
+  display: flex;
+  gap: 8px;
+  min-width: max-content;
+}
+
+.streak-pill {
+  width: 78px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 7px 8px;
+  border: var(--line, 2px) solid var(--ink, #171717);
+  background: #efe2c6;
+}
+
+.streak-pill strong {
+  font-size: 10px;
+  line-height: 1.15;
+}
+
+.streak-pill.is-active {
+  background: var(--orange, #ff6b2c);
+}
+
+.nutrition-frame {
+  min-height: 290px;
+  background: rgba(255, 107, 44, 0.12);
+}
+
+@media (max-width: 680px) {
+  .projection-footer,
+  .projection-heading,
+  .streak-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .chart-frame,
+  .nutrition-frame {
+    min-height: 240px;
+  }
 }
