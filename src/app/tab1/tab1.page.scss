@@ -12,6 +12,15 @@
   border-bottom: 1px solid #000;
 }
 
+.tab1-header .tracker-shell {
+  min-height: auto;
+  padding: 8px;
+}
+
+.tab1-header .tracker-frame {
+  min-height: auto;
+}
+
 .action-button:active {
   background-color: orange;
   transform: translate(2px, 2px) ;

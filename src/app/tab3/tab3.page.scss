@@ -1,9 +1,179 @@
+:host {
+  display: block;
+}
+
 .tab3-content {
-  --padding-bottom: calc(96px + env(safe-area-inset-bottom));
+  --background: transparent;
 }
 
 .tab3-header {
   background: var(--app-surface, #f6ecd3);
   box-shadow: none;
   border-bottom: 1px solid #000;
+}
+
+.tab3-header .tracker-shell {
+  min-height: auto;
+  padding: 8px;
+}
+
+.tab3-header .tracker-frame {
+  min-height: auto;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.profile-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 30px;
+  padding: 12px;
+  border: var(--line, 2px) solid var(--ink, #171717);
+  font-weight: 800;
+  background: var(--cream, #fff6df);
+}
+
+.profile-field span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.profile-field strong {
+  font-size: 1rem;
+  line-height: 1.2;
+  padding-right: 44px;
+}
+
+.field-edit-button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: var(--line, 2px) solid var(--ink, #171717);
+  background: var(--yellow, #f7df46);
+  color: var(--ink, #171717);
+  cursor: pointer;
+}
+
+.field-edit-button ion-icon {
+  font-size: 14px;
+}
+
+.profile-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(23, 23, 23, 0.45);
+}
+
+.profile-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 41;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.profile-modal-card {
+  width: min(100%, 420px);
+  border: var(--line, 2px) solid var(--ink, #171717);
+  background: var(--cream, #fff6df);
+  box-shadow: 8px 8px 0 rgba(23, 23, 23, 0.12);
+}
+
+.profile-modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  border-bottom: var(--line, 2px) solid var(--ink, #171717);
+  background: var(--yellow, #f7df46);
+}
+
+.profile-modal-head h2 {
+  margin: 6px 0 0;
+  font-size: 1rem;
+}
+
+.modal-icon-button {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: var(--line, 2px) solid var(--ink, #171717);
+  background: var(--cream, #fff6df);
+  color: var(--ink, #171717);
+  cursor: pointer;
+}
+
+.modal-icon-button ion-icon {
+  font-size: 16px;
+}
+
+.profile-modal-body {
+  padding: 14px;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-field span {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.modal-field input,
+.modal-field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: var(--line, 2px) solid var(--ink, #171717);
+  border-radius: 0;
+  background: white;
+  color: var(--ink, #171717);
+  font: inherit;
+  font-weight: 700;
+}
+
+.profile-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0 14px 14px;
+}
+
+.modal-action {
+  min-width: 92px;
+  padding: 10px 14px;
+  border: var(--line, 2px) solid var(--ink, #171717);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.modal-action.secondary {
+  background: white;
+  color: var(--ink, #171717);
+}
+
+.modal-action.primary {
+  background: var(--yellow, #f7df46);
+  color: var(--ink, #171717);
 }
