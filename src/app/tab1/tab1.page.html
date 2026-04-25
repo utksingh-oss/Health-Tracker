@@ -1,15 +1,69 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="tab1-content">
+  <div class="tracker-shell">
+    <section class="tracker-frame">
+      <div class="tracker-main mobile-focus">
+        <header class="tracker-topbar compact-topbar">
+          <div class="headline-panel simple-header">
+            <div class="headline-meta">
+              <p class="eyebrow">Daily Activity</p>
+              <span class="section-tag">{{ todayLabel }}</span>
+            </div>
+            <button type="button" class="action-button secondary-action header-action">
+              Save Today&apos;s Entry
+            </button>
+          </div>
+        </header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+        <main class="tracker-workspace mobile-workspace">
+          <section class="section-block compact-section">
+            <div class="section-heading">
+              <h2>Quick Snapshot</h2>
+            </div>
+
+            <div class="stats-grid compact-stats">
+              @for (card of statCards; track card.label) {
+                <article class="stat-card mini-stat-card">
+                  <div class="stat-icon">
+                    <ion-icon [icon]="card.icon"></ion-icon>
+                  </div>
+                  <p class="stat-label">{{ card.label }}</p>
+                  <h3>{{ card.value }}</h3>
+                </article>
+              }
+            </div>
+          </section>
+
+          <section class="section-block compact-section">
+            <div class="section-heading">
+              <h2>Today&apos;s Inputs</h2>
+            </div>
+
+            <div class="form-grid compact-form">
+              @for (field of keyInputs; track field.label) {
+                <label class="input-panel compact-input" [class]="field.tone">
+                  <span>{{ field.label }}</span>
+                  <ion-input type="number" placeholder="000" fill="outline"></ion-input>
+                </label>
+              }
+            </div>
+          </section>
+
+          <section class="summary-card detail-card mobile-detail-card">
+            <div class="detail-row">
+              <span>Goal</span>
+              <strong>Cut 300 kcal</strong>
+            </div>
+            <div class="detail-row">
+              <span>Hydration</span>
+              <strong>6 / 8 glasses</strong>
+            </div>
+            <div class="detail-row">
+              <span>Steps</span>
+              <strong>8.4k of 10k</strong>
+            </div>
+          </section>
+        </main>
+      </div>
+    </section>
+  </div>
 </ion-content>
